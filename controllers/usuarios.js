@@ -22,11 +22,11 @@ const usuariosPut = (req, res = response) => {
 
 // Peticion POST
 const usuariosPost = (req, res = response) => {
-    const { nombre, edad } = req.body;
+    //const { nombre, edad } = req.body;
+    const body = req.body;
     res.status(201).json({
         msg: 'post Api - controler',
-        nombre,
-        edad
+        body
     });
 }
 
