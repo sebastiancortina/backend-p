@@ -5,7 +5,7 @@ const dbConnection = async() => {
         mongoose.connect( process.env.MONGODB_CNN, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-           // useCreateIndex: true,
+            //useCreateIndex: true,
             //useFindAndModify: false
         })
         console.log("Base de datos Conectada");

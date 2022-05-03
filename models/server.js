@@ -9,7 +9,7 @@ class Server {
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-        this.usuariosPath = '/api/usuarios';
+        this.usuariosPath = '/api/banner';
 
         // Conectar a base de datos
         this.conectarDB();
@@ -37,7 +37,10 @@ class Server {
     }
 
     route(){
-        this.app.use(this.usuariosPath, require('../routes/usuarios'))
+
+        // banner
+        this.app.use(this.usuariosPath, require('../routes/banner'));
+        
 
     }
 

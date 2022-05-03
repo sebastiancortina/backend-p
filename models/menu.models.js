@@ -1,10 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const MenuSchema = Schema({
-    _id:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
-    },
+   
 
     title:{
         type: String,
@@ -42,17 +39,7 @@ const MenuSchema = Schema({
         type: String,
         required: [true, 'el nombre es obligatorio']
     },
-    createdAt:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
-    },
-    updatedAt:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
-    },
-    __v:{
-        type: Number
-    }
+   
 });
 
 module.exports = model('Menu', MenuSchema );
