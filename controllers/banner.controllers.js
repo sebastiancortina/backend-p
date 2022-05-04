@@ -11,8 +11,13 @@ const bannersGet = (req, res = response) => {
 }
 
 // Peticion PUT
-const bannersPut = (req = request, res = response) => {
-    const {id} = req.params;
+const bannersPut = async(req = request, res = response) => {
+
+  
+    
+
+    const banner = new Banner( resto );
+    await banner.findByIdAndUpdate( id, resto); 
 
     res.json({
         msg: 'put Api - controler',
@@ -24,7 +29,7 @@ const bannersPut = (req = request, res = response) => {
 const bannersPost = async (req = request, res = response) => {
 
     // Permite guardar los datos
-    const body = req.body;
+    const body  = req.body;
     const banner = new Banner( body );
     await banner.save(); 
 
