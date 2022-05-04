@@ -13,15 +13,14 @@ const bannersGet = (req, res = response) => {
 // Peticion PUT
 const bannersPut = async(req = request, res = response) => {
 
-  
-    
+    const { id } = req.params;
+    const { site_id, ...data}  = req.body;
 
-    const banner = new Banner( resto );
-    await banner.findByIdAndUpdate( id, resto); 
+    const banner = await Banner.findByIdAndUpdate(id, data);
 
     res.json({
-        msg: 'put Api - controler',
-        id
+        id,
+        data
     });
 }
 

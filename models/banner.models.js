@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, mongoose } = require('mongoose');
 
 const BannerSchema = Schema({
     title:{
@@ -16,10 +16,7 @@ const BannerSchema = Schema({
         //required: [true, 'el nombre es obligatorio']
     },
     site_id:{
-        $oid: {
-            type: String,
-            //required: [true, 'el nombre es obligatorio']
-        }
+        type: mongoose.Schema.Types.ObjectId,ref:'Post'
     },
     is_active:{
         type: Boolean
@@ -28,4 +25,4 @@ const BannerSchema = Schema({
     timestamps:true
 });
 
-module.exports = model('banner', BannerSchema );
+module.exports = model('Banner', BannerSchema );
