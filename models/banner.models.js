@@ -16,7 +16,9 @@ const BannerSchema = Schema({
         //required: [true, 'el nombre es obligatorio']
     },
     site_id:{
-        type: mongoose.Schema.Types.ObjectId,ref:'Post'
+        $oid:{
+            type: String
+        }
     },
     is_active:{
         type: Boolean

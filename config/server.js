@@ -2,14 +2,17 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const { dbConnection } = require('../database/config')
+const { dbConnection } = require('../database/config');
+const { routersBanner } = require('../routes/index.routes');
 
 
 class Server {
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-        this.bannersPath = '/api/banner';
+        this.Path = {
+            bannersPath : '/api/banner',
+        }
 
         // Conectar a base de datos
         this.conectarDB();
@@ -39,7 +42,7 @@ class Server {
     route(){
 
         // banner
-        this.app.use(this.bannersPath , require('../routes/banner.routes'));
+        this.app.use(this.Path.bannersPath , routersBanner);
         
 
     }

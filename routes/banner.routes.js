@@ -2,7 +2,7 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 
 const {  bannersGet, bannersPut, bannersPost, bannersDelete, bannersPatch } = require('../controllers/banner.controllers');
-const { validarCampos } = require('../middlewares/validar-campos');
+const { validarCampos } = require('../middlewares/banner.middlewares');
 
 const router = Router();
 
@@ -12,8 +12,8 @@ router.put('/:id', validarCampos, bannersPut);
 
 router.post('/', validarCampos, bannersPost);
 
-router.delete('/',  bannersDelete);
+router.delete('/:id',  bannersDelete);
 
-router.patch('/', bannersPatch);
+//router.patch('/', bannersPatch);
 
 module.exports = router;
