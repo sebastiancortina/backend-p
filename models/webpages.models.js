@@ -4,24 +4,23 @@ const WebpageSchema = Schema({
 
     title:{
         type: String,
-        required: [true, 'el nombre es obligatorio']
+        //required: [true, 'el nombre es obligatorio']
     },
 
     body:{
         type: String,
-        required: [true, 'el nombre es obligatorio']
+        //required: [true, 'el nombre es obligatorio']
     },
 
     slug:{
         type: String,
-        required: [true, 'el nombre es obligatorio']
+        //required: [true, 'el nombre es obligatorio']
     },
 
     site_id:{
-        $oid: {
-            type: String,
-            required: [true, 'el nombre es obligatorio']
-        }
+        type: String,
+        //required: [true, 'el nombre es obligatorio']
+        
     },
     is_active:{
         type: Boolean

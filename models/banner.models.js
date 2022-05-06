@@ -16,9 +16,7 @@ const BannerSchema = Schema({
         //required: [true, 'el nombre es obligatorio']
     },
     site_id:{
-        $oid:{
-            type: String
-        }
+        type: String
     },
     is_active:{
         type: Boolean

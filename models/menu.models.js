@@ -14,9 +14,7 @@ const MenuSchema = Schema({
         type: Number,
     },
     site_id:{
-        $oid:{
-            type: String
-        }
+        type: String
     },
     father:{
         type: String
