@@ -1,45 +1,31 @@
 const { Schema, model } = require('mongoose');
 
 const MenuSchema = Schema({
-   
-
     title:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
+        type: String
     },
-
     slug:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
+        type: String
     },
-
     order:{
         type: Number,
-        required: [true, 'el nombre es obligatorio']
     },
-
     nivel:{
         type: Number,
-        required: [true, 'el nombre es obligatorio']
     },
     site_id:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
+        $oid:{
+            type: String
+        }
     },
     father:{
-        type: Boolean
-    },
-    father:{
-        type: Boolean
+        type: String
     },
     is_active:{
         type: Boolean
-    },
-    createdAt:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
-    },
-   
+    }
+},{
+    timestamps:true
 });
 
 module.exports = model('Menu', MenuSchema );

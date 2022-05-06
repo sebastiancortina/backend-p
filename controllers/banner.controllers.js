@@ -1,5 +1,5 @@
 const { response, request } = require('express');
-const Banner = require('../models/banner.models');
+const {  BannerModelo } = require('../models/index.models');
 
 
 // Peticion GET - listo
@@ -8,8 +8,8 @@ const bannersGet = async (req, res = response) => {
     const query = { is_active: true };
 
     const [ total, banner ] = await Promise.all([
-        Banner.countDocuments(query),
-        Banner.find(query)
+        BannerModelo.countDocuments(query),
+        BannerModelo.find(query)
     ])
 
     res.status(201).json({
@@ -24,11 +24,11 @@ const bannersPut = async(req = request, res = response) => {
     const { id } = req.params;
     const { site_id, ...data}  = req.body;
 
-    const banner = await Banner.findByIdAndUpdate(id, data);
+    const banner = await BannerModelo.findByIdAndUpdate(id, data);
 
     res.status(200).json({
         id,
-        data
+        banner
     });
 }
 
@@ -37,7 +37,7 @@ const bannersPost = async (req = request, res = response) => {
 
     // Permite guardar los datos
     const body  = req.body;
-    const banner = new Banner( body );
+    const banner = new BannerModelo( body );
     await banner.save(); 
 
     res.status(201).json({
@@ -49,7 +49,7 @@ const bannersPost = async (req = request, res = response) => {
 const bannersDelete = async (req = request, res = response) => {
     const { id } = req.params;
 
-    const banner = await Banner.findByIdAndUpdate(id, {is_active: false})
+    const banner = await BannerModelo.findByIdAndUpdate(id, {is_active: false})
 
     res.status(200).json({
         msg: 'delete Api - controler',
