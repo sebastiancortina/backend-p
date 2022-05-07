@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator');
 const { response, request } = require('express');
-const { websiteSchema } = require('../schemas/website.shema');
+const { websiteSchema } = require('../schemas/website.shemas');
 //const { WebpagesModelo } = require('../models/index.models');
 
 const validarCampos = async (req = request , res =  response , next) => {

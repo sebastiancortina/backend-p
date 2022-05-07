@@ -1,11 +1,6 @@
 const { Schema, model } = require('mongoose');
 
 const WebsiteSchema = Schema({
-    _id:{
-        type: String,
-        //required: [true, 'el nombre es obligatorio']
-    },
-
     idSite:{
         type: String,
         //required: [true, 'el nombre es obligatorio']
@@ -47,11 +42,11 @@ const WebsiteSchema = Schema({
     social_links:[
         {
             id: {type: Number},
-            title: {type: String },
-            text: {type: String},
-            icon: { type: String},
-            url: {type: String},
-            is_active:{type: Boolean}
+            title: {type: String},
+            type:{type: String},
+            icon: {type: String},
+            url:{type: String},
+            is_active: {type: Boolean}
         }
     ],
     is_active:{

@@ -2,8 +2,8 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const { dbConnection } = require('../database/config');
-const { routersBanner, routersMenu, routersWebpages } = require('../routes/index.routes');
+const { dbConnection } = require('./database/config');
+const { routersBanner, routersMenu, routersWebpages, routerWebsites } = require('../routes/index.routes');
 
 
 class Server {
@@ -53,8 +53,8 @@ class Server {
         //webpages
         this.app.use(this.Path.WebpagesPath , routersWebpages);
 
-        //webpages
-        //this.app.use(this.Path.WebsitesPath , routersWebpages);
+        //websites
+        this.app.use(this.Path.WebsitesPath , routerWebsites);
 
     }
 
