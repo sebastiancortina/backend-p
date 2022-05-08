@@ -16,7 +16,7 @@ const websiteSchema = joi.object({
         background_primary: joi.string().required(),
         background_secondary: joi.string().required()
     },
-    social_links:[
+    social_links:joi.array().items(
         joi.object({
             id: joi.number(),
             title: joi.string(),
@@ -25,7 +25,7 @@ const websiteSchema = joi.object({
             url: joi.string(),
             is_active: joi.boolean()
         })
-    ],
+    ),
     is_active: joi.boolean(),
 });
 

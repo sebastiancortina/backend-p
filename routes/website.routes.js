@@ -6,9 +6,9 @@ const router = Router();
 
 router.get('/', websiteGet);
 
-router.put('/:id',  websitePut );
+router.put('/:id', validarCampos, websitePut );
 
-router.post('/', websitePost);
+router.post('/', validarCampos, websitePost);
 
 router.delete('/:id', websiteDelete);
 

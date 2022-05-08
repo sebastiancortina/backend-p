@@ -1,7 +1,6 @@
 const { response, request } = require('express');
 const { WebsitesModelo } = require('../models/index.models');
 
-
 // Peticion GET - listo
 const websiteGet = async (req, res = response) => {
     const query = { is_active: true };
@@ -18,8 +17,7 @@ const websiteGet = async (req, res = response) => {
     });
 }
 
-
-// Peticion PUT - 
+// Peticion PUT - listo
 const websitePut = async(req = request, res = response) => {
     
     const { id } = req.params;
@@ -34,7 +32,7 @@ const websitePut = async(req = request, res = response) => {
     });
 }
 
-// Peticion POST  
+// Peticion POST - listo
 const websitePost = async (req = request, res = response) => {
 
     // Permite guardar los datos
@@ -48,7 +46,7 @@ const websitePost = async (req = request, res = response) => {
     });
 }
 
-// Peticion DELETE
+// Peticion DELETE - listo
 const websiteDelete = async (req = request, res = response) => {
     const { id } = req.params;
 
