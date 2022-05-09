@@ -6,7 +6,7 @@ const menuSchema = joi.object({
     order: joi.number().required(),
     nivel: joi.number().required(),
     site_id: joi.string().required(),
-    father: joi.string().required(),
+    father: joi.string(),
     is_active: joi.boolean()
 });
 

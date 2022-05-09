@@ -17,7 +17,7 @@ const itembannerteGet = async (req, res = response) => {
     });
 }
 
-// Peticion PUT - listo
+// Peticion PUT 
 const itembannerPut = async(req = request, res = response) => {
     
     const { id } = req.params;

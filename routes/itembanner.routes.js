@@ -1,14 +1,14 @@
 const { Router } = require('express');
 const { itembannerteGet, itembannerPut, itembannerPost, itembannerDelete, itembannerPatch }= require('../controllers/itembanner.controllers');
-//const { validarCampos } = require('../middlewares/');
+const { validarCampos } = require('../middlewares/itembanner.middleware');
 
 const router = Router();
 
 router.get('/', itembannerteGet );
 
-router.put('/:id',  itembannerPut);
+router.put('/:id', validarCampos, itembannerPut);
 
-router.post('/', itembannerPost);
+router.post('/', validarCampos, itembannerPost);
 
 router.delete('/:id', itembannerDelete);
 
