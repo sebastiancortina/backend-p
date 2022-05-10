@@ -1,8 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 const PageSchema = Schema({
-    idSite:{
+    id_Site:{
         type: String
+        
         //objeto
     },
     name:{

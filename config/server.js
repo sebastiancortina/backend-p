@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
-const { routersBanner, routersFooter } = require('../routes/routers/index.routes');
+const { routersBanner, routersFooter, routersItemBanner, routersPage,  routersPageContent } = require('../routes/routers/index.routes');
 
 
 class Server {
@@ -19,6 +19,9 @@ class Server {
             //-------- new rutas -----------
             bannersPath: '/api/banner',
             footerPath: '/api/footer',
+            itembanner : '/api/itembanner',
+            page:'/api/page',
+            pageContent:'/api/pageContent'
         }
 
         // Conectar a base de datos
@@ -69,6 +72,15 @@ class Server {
 
         //footer
         this.app.use(this.Path.footerPath , routersFooter);
+
+        //itembanner
+        this.app.use(this.Path.itembanner , routersItemBanner);
+
+        //page
+        this.app.use(this.Path.page ,  routersPage);
+
+        //pageContent
+        this.app.use(this.Path.pageContent ,   routersPageContent);
 
         
     }
