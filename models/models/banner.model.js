@@ -6,7 +6,7 @@ const BannerSchema = Schema({
         //objeto
     },
     name:{
-        type: Number,
+        type: String,
         //required: [true, 'el nombre es obligatorio']
     },
     is_active:{

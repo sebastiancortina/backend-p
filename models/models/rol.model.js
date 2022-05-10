@@ -12,4 +12,4 @@ const RolSchema = Schema({
     timestamps:true
 });
 
-module.exports = model('ItemBanner', ItemBannerSchema );
+module.exports = model('Rol', RolSchema );

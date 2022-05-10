@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const FooterSchema = Schema({
-    idSite:{
+    id_site:{
         type: String
         //objeto
     },
@@ -12,7 +12,7 @@ const FooterSchema = Schema({
         type: String
     },
     phone:{
-        type: String
+        type: Number
         
     },
     socialNetwork:{
@@ -25,4 +25,4 @@ const FooterSchema = Schema({
     timestamps:true
 });
 
-module.exports = model('Page',  PageSchema );
+module.exports = model('Footer',  FooterSchema );

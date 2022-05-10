@@ -31,4 +31,4 @@ const ItemBannerSchema = Schema({
     timestamps:true
 });
 
-module.exports = model('ItemBanner', ItemBannerSchema );
+module.exports = model('Itembanner', ItemBannerSchema );

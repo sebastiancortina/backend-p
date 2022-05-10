@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
-const { routersBanner, routersMenu, routersWebpages, routerWebsites, routerItembanner } = require('../routes/index.routes');
+const { routersBanner, routersFooter } = require('../routes/routers/index.routes');
 
 
 class Server {
@@ -11,11 +11,14 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.Path = {
-            bannersPath : '/api/banner',
+           // bannersPath : '/api/banner',
             menusPath : '/api/menu',
             WebpagesPath : '/api/webpages',
             WebsitesPath : '/api/websites',
             ItembannersPath : '/api/itembanner',
+            //-------- new rutas -----------
+            bannersPath: '/api/banner',
+            footerPath: '/api/footer',
         }
 
         // Conectar a base de datos
@@ -46,18 +49,28 @@ class Server {
     route(){
 
         // banner
-        this.app.use(this.Path.bannersPath , routersBanner);
+        //this.app.use(this.Path.bannersPath , routersBanner);
 
         // menu
-        this.app.use(this.Path.menusPath , routersMenu);
+        //this.app.use(this.Path.menusPath , routersMenu);
 
         //webpages
-        this.app.use(this.Path.WebpagesPath , routersWebpages);
+        //this.app.use(this.Path.WebpagesPath , routersWebpages);
         
         //websites
-        this.app.use(this.Path.WebsitesPath , routerWebsites);
+        //this.app.use(this.Path.WebsitesPath , routerWebsites);
         //itembanner
-        this.app.use(this.Path.ItembannersPath, routerItembanner);
+        //this.app.use(this.Path.ItembannersPath, routerItembanner);
+
+        //---------------------------------------------------------------
+        
+        // banner
+        this.app.use(this.Path.bannersPath , routersBanner);
+
+        //footer
+        this.app.use(this.Path.footerPath , routersFooter);
+
+        
     }
 
     listen(){
