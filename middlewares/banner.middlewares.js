@@ -1,7 +1,8 @@
 const { validationResult } = require('express-validator');
 const { response, request } = require('express');
 const { bannerSchema } = require('../schemas/banner.schema');
-const Banner = require('../models/banner.models');
+const {Banner} = require('../models/banner.models');
+const {  BannerModelo } = require('../models/index.models');
 
 const validarCampos = async (req = request , res =  response , next) => {
     try{
@@ -13,7 +14,8 @@ const validarCampos = async (req = request , res =  response , next) => {
     }
 }
 
-const existeId = async (req = request , res = response) => {
+const existeId = async (req = request , res = response, next) => {
+
 
     const { id } = req.params;
 

@@ -2,30 +2,22 @@ const { Schema, model } = require('mongoose');
 
 const WebpageSchema = Schema({
 
-    title:{
-        type: String,
-        //required: [true, 'el nombre es obligatorio']
+    site_id:{ //
+        type: String,  
     },
-
-    body:{
+    name:{ //
         type: String,
-        //required: [true, 'el nombre es obligatorio']
     },
-
-    slug:{
-        type: String,
-        //required: [true, 'el nombre es obligatorio']
+    slug:{ // 
+        type: String
     },
-
-    site_id:{
-        type: String,
-        //required: [true, 'el nombre es obligatorio']
-        
+    weight:{ // 
+        type: String
     },
-    is_active:{
+    is_active:{ //
         type: Boolean
-    },
-   
+    }
+
 }, {
     timestamps:true
 });
