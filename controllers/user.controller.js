@@ -1,5 +1,5 @@
 const { response, request } = require('express');
-const {   usersModelo } = require('../models/index.models');
+const {  usersModelo } = require('../models/index.models');
 
 // Peticion GET 
 const usersGet = async (req, res = response) => {
@@ -7,8 +7,8 @@ const usersGet = async (req, res = response) => {
     const query = { is_active: true };
 
     const [ total, user ] = await Promise.all([
-         usersModelo.countDocuments(query),
-         usersModelo.find(query)
+        usersModelo.countDocuments(query),
+        usersModelo.find(query).populate('id_profile')
     ])
 
     res.status(201).json({

@@ -1,10 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const PageSchema = Schema({
-    id_Site:{
-        type: String,
+    //objeto
+    id_site:{
+        type: Schema.ObjectId, ref: "Site",
         required: [true, 'el nombre es obligatorio']
-        //objeto
     },
     name:{
         type: String,

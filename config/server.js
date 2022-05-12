@@ -3,7 +3,18 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
-const { routersBanner, routersFooter, routersItemBanner, routersPage,  routersPageContent, routersPost, routersRol, routersProfile, routersUser } = require('../routes/index.routes');
+const { routersBanner, 
+    routersFooter, 
+    routersItemBanner, 
+    routersPage,  
+    routersPageContent, 
+    routersPost, 
+    routersRol, 
+    routersProfile, 
+    routersUser, 
+    routersRolPermission,
+    routersPermissions,
+    routersSite } = require('../routes/index.routes');
 
 
 class Server {
@@ -11,12 +22,7 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.Path = {
-           // bannersPath : '/api/banner',
-            menusPath : '/api/menu',
-            WebpagesPath : '/api/webpages',
-            WebsitesPath : '/api/websites',
-            ItembannersPath : '/api/itembanner',
-            //-------- new rutas -----------//
+            site:'/api/site',
             bannersPath: '/api/banner',
             footerPath: '/api/footer',
             itembanner : '/api/itembanner',
@@ -26,9 +32,9 @@ class Server {
             //--------- usuarios --------//
             rol:'/api/rol',
             profile:'/api/profile',
-            user:'api/user'
-
-
+            user:'/api/user',
+            rolPermission: '/api/rolPermission',
+            permissions: '/api/permissions'
         }
 
         // Conectar a base de datos
@@ -57,6 +63,8 @@ class Server {
     }
 
     route(){
+        //site
+        this.app.use(this.Path.site ,  routersSite );
 
         //page
         this.app.use(this.Path.page ,  routersPage);
@@ -86,6 +94,13 @@ class Server {
 
         //user
         this.app.use(this.Path.user, routersUser);
+
+        //rolPermission
+        this.app.use(this.Path.rolPermission, routersRolPermission );
+
+        //permissions
+        this.app.use(this.Path.permissions, routersPermissions );
+
 
         
 

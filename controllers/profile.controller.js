@@ -8,7 +8,7 @@ const profilesGet = async (req, res = response) => {
 
     const [ total, profile ] = await Promise.all([
         profileModelo.countDocuments(query),
-        profileModelo.find(query)
+        profileModelo.find(query).populate('id_rol')
     ])
 
     res.status(201).json({

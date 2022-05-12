@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose');
 
-const ItemBannerSchema = Schema({
+const UserSchema = Schema({
+    id_profile:{
+        type: Schema.ObjectId, ref: "Profile",
+        //objeto
+    },
     email:{
         type: String,
         required: [true, 'el nombre es obligatorio']
@@ -8,11 +12,6 @@ const ItemBannerSchema = Schema({
     password:{
         type: String,
         required: [true, 'el nombre es obligatorio']
-    },
-    id_profile:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
-        //objeto
     },
     is_active:{
         type: Boolean,
@@ -22,4 +21,4 @@ const ItemBannerSchema = Schema({
     timestamps:true
 });
 
-module.exports = model('ItemBanner', ItemBannerSchema );
+module.exports = model('User', UserSchema );

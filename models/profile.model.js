@@ -1,6 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 const ProfileSchema = Schema({
+    id_rol:{
+        type: Schema.ObjectId, ref: "Rol",
+    },
     name:{
         type: String,
         required: [true, 'el nombre es obligatorio']
@@ -18,10 +21,6 @@ const ProfileSchema = Schema({
         required: [true, 'el nombre es obligatorio']
     },
     address:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
-    },
-    id_rol:{
         type: String,
         required: [true, 'el nombre es obligatorio']
     },

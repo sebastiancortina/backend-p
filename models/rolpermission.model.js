@@ -1,14 +1,12 @@
 const { Schema, model } = require('mongoose');
 
 const RolPermissionSchema = Schema({
-    id_permission:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
+    id_rol:{
+        type: Schema.ObjectId, ref: "Rol",
         //objeto
     },
-    id_rol:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
+    id_permission:{
+        type: Schema.ObjectId, ref: "Permission",
         //objeto
     },
     is_active:{

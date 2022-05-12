@@ -5,9 +5,8 @@ const PostSchema = Schema({
         type: String,
         required: [true, 'el nombre es obligatorio']
     },
-    id_Page:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
+    id_page:{
+        type: Schema.ObjectId, ref: "Page"
     },
     slog:{
         type: String,

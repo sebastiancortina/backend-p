@@ -8,7 +8,7 @@ const footersGet = async (req, res = response) => {
 
     const [ total, footer ] = await Promise.all([
         footerModelo.countDocuments(query),
-        footerModelo.find(query)
+        footerModelo.find(query).populate('id_site')
     ])
 
     res.status(201).json({

@@ -8,7 +8,7 @@ const pagecontentsGet = async (req, res = response) => {
 
     const [ total, pagecontent ] = await Promise.all([
         pagecontentModelo.countDocuments(query),
-        pagecontentModelo.find(query)
+        pagecontentModelo.find(query).populate('id_page')
     ])
 
     res.status(201).json({

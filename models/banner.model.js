@@ -2,8 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const BannerSchema = Schema({
     id_page:{
-        type: String,
-        required: [true, 'el nombre es obligatorio']
+        type: Schema.ObjectId, ref: "Page",
         //objeto
     },
     name:{

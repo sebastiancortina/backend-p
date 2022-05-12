@@ -8,7 +8,7 @@ const bannersGet = async (req, res = response) => {
 
     const [ total, banner ] = await Promise.all([
         bannerModelo.countDocuments(query),
-        bannerModelo.find(query)
+        bannerModelo.find(query).populate('id_page')
     ])
 
     res.status(201).json({

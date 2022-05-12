@@ -1,5 +1,5 @@
 const { response, request } = require('express');
-const {  pageModelo } = require('../models/index.models');
+const {  pageModelo, si } = require('../models/index.models');
 
 // Peticion GET 
 const pagesGet = async (req, res = response) => {
@@ -8,7 +8,9 @@ const pagesGet = async (req, res = response) => {
 
     const [ total, page ] = await Promise.all([
         pageModelo.countDocuments(query),
-        pageModelo.find(query)
+        pageModelo.find(query).populate('id_site')
+        //pageModelo.countDocuments(query),
+       // pageModelo.populate('id_site')
     ])
 
     res.status(201).json({

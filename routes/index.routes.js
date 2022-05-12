@@ -6,7 +6,10 @@ const routersPageContent = require('./PageContent.routes');
 const routersPost = require('./post.routes');
 const routersRol = require('./rol.routes');
 const routersProfile = require('./profile.routes');
-const routersUser = require('./user.routes')
+const routersUser = require('./user.routes');
+const routersRolPermission = require('./rolPermission.routes');
+const routersPermissions = require('./permission.routes');
+const routersSite = require('./site.routes')
 
 module.exports = {
     routersBanner,
@@ -17,5 +20,8 @@ module.exports = {
     routersPost,
     routersRol,
     routersProfile,
-    routersUser
+    routersUser,
+    routersRolPermission,
+    routersPermissions,
+    routersSite
 }

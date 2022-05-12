@@ -6,11 +6,11 @@ const SiteSchema = Schema({
         required: [true, 'el nombre es obligatorio']
     },
     slogan:{
-        type: Number,
+        type: String,
         required: [true, 'el nombre es obligatorio']
     },
     icon:{
-        type: Number,
+        type: String,
         required: [true, 'el nombre es obligatorio']
     },
     is_active:{

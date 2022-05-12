@@ -8,7 +8,7 @@ const itembannersGet = async (req, res = response) => {
 
     const [ total, itembanner ] = await Promise.all([
         itembannerModelo.countDocuments(query),
-        itembannerModelo.find(query)
+        itembannerModelo.find(query).populate('id_banner')
     ])
 
     res.status(201).json({

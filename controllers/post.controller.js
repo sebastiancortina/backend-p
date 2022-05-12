@@ -8,7 +8,7 @@ const postsGet = async (req, res = response) => {
 
     const [ total, post ] = await Promise.all([
         postModelo.countDocuments(query),
-        postModelo.find(query)
+        postModelo.find(query).populate('id_page')
     ])
 
     res.status(201).json({
