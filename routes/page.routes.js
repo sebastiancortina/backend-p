@@ -1,18 +1,17 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-
-const {  bannersGet, bannersPut, bannersPost, bannersDelete, bannersPatch } = require('../controllers/banner.controller');
+const { pagesGet, pagesPut, pagesPost, pagesDelete } = require('../controllers/page.controller');
 //const { validarCampos, existeId  } = require('../middlewares/banner.middlewares');
 
 const router = Router();
 
-router.get('/',  bannersGet);
+router.get('/',  pagesGet);
 
-router.put('/:id', bannersPut);
+router.put('/:id',  pagesPut);
 
-router.post('/',  bannersPost);
+router.post('/',  pagesPost);
 
-router.delete('/:id', bannersDelete);
+router.delete('/:id', pagesDelete);
 
 //router.patch('/', bannersPatch);
 

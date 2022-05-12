@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
-const { routersBanner, routersFooter, routersItemBanner, routersPage,  routersPageContent } = require('../routes/routers/index.routes');
+const { routersBanner, routersFooter, routersItemBanner, routersPage,  routersPageContent, routersPost, routersRol, routersProfile, routersUser } = require('../routes/index.routes');
 
 
 class Server {
@@ -16,12 +16,19 @@ class Server {
             WebpagesPath : '/api/webpages',
             WebsitesPath : '/api/websites',
             ItembannersPath : '/api/itembanner',
-            //-------- new rutas -----------
+            //-------- new rutas -----------//
             bannersPath: '/api/banner',
             footerPath: '/api/footer',
             itembanner : '/api/itembanner',
             page:'/api/page',
-            pageContent:'/api/pageContent'
+            pageContent:'/api/pageContent',
+            post:'/api/post',
+            //--------- usuarios --------//
+            rol:'/api/rol',
+            profile:'/api/profile',
+            user:'api/user'
+
+
         }
 
         // Conectar a base de datos
@@ -51,38 +58,38 @@ class Server {
 
     route(){
 
-        // banner
-        //this.app.use(this.Path.bannersPath , routersBanner);
-
-        // menu
-        //this.app.use(this.Path.menusPath , routersMenu);
-
-        //webpages
-        //this.app.use(this.Path.WebpagesPath , routersWebpages);
-        
-        //websites
-        //this.app.use(this.Path.WebsitesPath , routerWebsites);
-        //itembanner
-        //this.app.use(this.Path.ItembannersPath, routerItembanner);
-
-        //---------------------------------------------------------------
-        
-        // banner
-        this.app.use(this.Path.bannersPath , routersBanner);
+        //page
+        this.app.use(this.Path.page ,  routersPage);
 
         //footer
         this.app.use(this.Path.footerPath , routersFooter);
 
-        //itembanner
-        this.app.use(this.Path.itembanner , routersItemBanner);
-
-        //page
-        this.app.use(this.Path.page ,  routersPage);
-
         //pageContent
         this.app.use(this.Path.pageContent ,   routersPageContent);
 
+        //post
+        this.app.use(this.Path.post , routersPost);
+
+        // banner
+        this.app.use(this.Path.bannersPath , routersBanner);
+
+        //itembanner
+        this.app.use(this.Path.itembanner , routersItemBanner);
+
+        //-----------------------------------------------------------//
+
+        //Rol
+        this.app.use(this.Path.rol, routersRol);
+
+        //profile
+        this.app.use(this.Path.profile, routersProfile);
+
+        //user
+        this.app.use(this.Path.user, routersUser);
+
         
+
+
     }
 
     listen(){

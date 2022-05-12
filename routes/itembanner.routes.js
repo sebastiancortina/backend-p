@@ -1,17 +1,18 @@
 const { Router } = require('express');
-const { itembannerteGet, itembannerPut, itembannerPost, itembannerDelete, itembannerPatch }= require('../controllers/itembanner.controllers');
-const { validarCampos } = require('../middlewares/itembanner.middleware');
+const { check } = require('express-validator');
+const {  itembannersGet, itembannersPut, itembannersPost, itembannersDelete } = require('../controllers/itembanner.controller');
+//const { validarCampos, existeId  } = require('../middlewares/banner.middlewares');
 
 const router = Router();
 
-router.get('/', itembannerteGet );
+router.get('/',  itembannersGet);
 
-router.put('/:id', validarCampos, itembannerPut);
+router.put('/:id',  itembannersPut);
 
-router.post('/', validarCampos, itembannerPost);
+router.post('/',  itembannersPost);
 
-router.delete('/:id', itembannerDelete);
+router.delete('/:id', itembannersDelete);
 
-//router.patch('/', bannersPatch);*/
+//router.patch('/', bannersPatch);
 
 module.exports = router;

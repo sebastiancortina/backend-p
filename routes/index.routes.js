@@ -1,13 +1,21 @@
 const routersBanner  = require('./banner.routes');
-const routersMenu  = require('./menu.routes');
-const  routersWebpages = require('./webpages.routes');
-const routerWebsites = require('./website.routes');
-const routerItembanner = require('./itembanner.routes')
+const routersFooter = require('./footer.routes');
+const routersItemBanner = require('./itembanner.routes');
+const routersPage = require('./page.routes');
+const routersPageContent = require('./PageContent.routes');
+const routersPost = require('./post.routes');
+const routersRol = require('./rol.routes');
+const routersProfile = require('./profile.routes');
+const routersUser = require('./user.routes')
 
 module.exports = {
     routersBanner,
-    routersMenu,
-    routersWebpages,
-    routerWebsites,
-    routerItembanner
+    routersFooter,
+    routersItemBanner,
+    routersPage,
+    routersPageContent,
+    routersPost,
+    routersRol,
+    routersProfile,
+    routersUser
 }
