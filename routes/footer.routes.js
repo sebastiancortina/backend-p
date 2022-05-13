@@ -2,15 +2,15 @@ const { Router } = require('express');
 //const { check } = require('express-validator');
 
 const { footersGet, footersPut, footersPost, footersDelete} = require('../controllers/footer.controller');
-//const { validarCampos, existeId  } = require('../middlewares/banner.middlewares');
+const middlewares = require('../middlewares/footer.middleware');
 
 const router = Router();
 
 router.get('/',  footersGet);
 
-router.put('/:id', footersPut);
+router.put('/:id', middlewares , footersPut);
 
-router.post('/',  footersPost);
+router.post('/', middlewares ,footersPost);
 
 router.delete('/:id', footersDelete);
 

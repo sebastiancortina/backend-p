@@ -2,15 +2,15 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 
 const { pagecontentsGet, pagecontentsPut, pagecontentsPost, pagecontentsDelete } = require('../controllers/pagecontent.controller');
-//const { validarCampos, existeId  } = require('../middlewares/banner.middlewares');
+const  middlewares = require('../middlewares/pagecontent.middlewares');
 
 const router = Router();
 
 router.get('/',  pagecontentsGet);
 
-router.put('/:id',pagecontentsPut);
+router.put('/:id', middlewares, pagecontentsPut);
 
-router.post('/',  pagecontentsPost);
+router.post('/', middlewares, pagecontentsPost);
 
 router.delete('/:id', pagecontentsDelete);
 

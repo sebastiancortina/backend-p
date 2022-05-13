@@ -1,12 +1,12 @@
-//const { validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 const { response, request } = require('express');
-const { bannerSchema } = require('../schemas/banner.schema');
+const { siteSchema } = require('../schemas/site.schema');
 //const {Banner} = require('../models/banner.models');
 //const {  BannerModelo } = require('../models/index.models');
 
 const validarCampos = async (req = request , res =  response , next) => {
     try{
-        await bannerSchema.validateAsync(req.body);
+        await siteSchema.validateAsync(req.body);
         next();
     } catch(err){
         return res.status(400).json(err);
@@ -31,4 +31,4 @@ const existeId = async (req = request , res = response, next) => {
 module.exports = [
     validarCampos
 ]
-    
+  

@@ -1,15 +1,15 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const {  itembannersGet, itembannersPut, itembannersPost, itembannersDelete } = require('../controllers/itembanner.controller');
-//const { validarCampos, existeId  } = require('../middlewares/banner.middlewares');
+const middlewares = require('../middlewares/banner.middlewares');
 
 const router = Router();
 
 router.get('/',  itembannersGet);
 
-router.put('/:id',  itembannersPut);
+router.put('/:id', middlewares, itembannersPut);
 
-router.post('/',  itembannersPost);
+router.post('/', middlewares, itembannersPost);
 
 router.delete('/:id', itembannersDelete);
 

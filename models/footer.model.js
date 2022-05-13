@@ -3,6 +3,7 @@ const { Schema, model } = require('mongoose');
 const FooterSchema = Schema({
     id_site:{
         type: Schema.ObjectId, ref: "Site",
+        required: [true, 'el nombre es obligatorio']
         //objeto
     },
     email:{
