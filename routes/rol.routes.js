@@ -1,15 +1,15 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const { rolsGet, rolsPut, rolsPost, rolsDelete } = require('../controllers/rol.controller');
-//const { validarCampos, existeId  } = require('../middlewares/banner.middlewares');
+const  middlewares = require('../middlewares/rol.middleware');
 
 const router = Router();
 
 router.get('/', rolsGet);
 
-router.put('/:id',  rolsPut);
+router.put('/:id', middlewares, rolsPut);
 
-router.post('/',  rolsPost);
+router.post('/',  middlewares, rolsPost);
 
 router.delete('/:id', rolsDelete);
 

@@ -1,15 +1,15 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const {  permissionsGet, permissionsPut, permissionsPost, permissionsDelete } = require('../controllers/permission.controller');
-//const { validarCampos, existeId  } = require('../middlewares/banner.middlewares');
+const middlewares = require('../middlewares/permission.middleware');
 
 const router = Router();
 
 router.get('/', permissionsGet);
 
-router.put('/:id',  permissionsPut);
+router.put('/:id', middlewares, permissionsPut);
 
-router.post('/',  permissionsPost);
+router.post('/', middlewares, permissionsPost);
 
 router.delete('/:id', permissionsDelete);
 

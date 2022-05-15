@@ -28,6 +28,19 @@ const existeId = async (req = request , res = response, next) => {
     next();
 }*/
 
+const existeId = async (req = request , res = response) => {
+
+    const { id } = req.params;
+
+    // Verifica si el banner existe
+    const existebanner = await WebpagesModelo.findById(id);
+    if (!existebanner ){
+        throw new Error(`El id no existe ${id}`);
+    }
+    
+    next();
+}
+
 module.exports = [
     validarCampos
 ]

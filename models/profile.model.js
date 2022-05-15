@@ -12,12 +12,12 @@ const ProfileSchema = Schema({
         type: String,
         required: [true, 'el nombre es obligatorio']
     },
-    urlPhoto:{
+    url_photo:{
         type: String,
         required: [true, 'el nombre es obligatorio']
     },
     phone:{
-        type: String,
+        type: Number,
         required: [true, 'el nombre es obligatorio']
     },
     address:{
